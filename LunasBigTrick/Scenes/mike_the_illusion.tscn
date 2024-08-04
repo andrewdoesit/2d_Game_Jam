@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://cewowgltsrb8k"]
+
+[ext_resource type="Script" path="res://Scenes/mike_the_illusion.gd" id="1_m3fyc"]
+[ext_resource type="Texture2D" uid="uid://datj2unej34n3" path="res://Art/Smileys_ART/SmilyWizard.png" id="1_x8s4w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5awf"]
+atlas = ExtResource("1_x8s4w")
+region = Rect2(0, 0, 50, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfwmg"]
+atlas = ExtResource("1_x8s4w")
+region = Rect2(50, 0, 50, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xf24s"]
+atlas = ExtResource("1_x8s4w")
+region = Rect2(100, 0, 50, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1xsi"]
+atlas = ExtResource("1_x8s4w")
+region = Rect2(150, 0, 50, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ax1c"]
+atlas = ExtResource("1_x8s4w")
+region = Rect2(200, 0, 50, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6knu"]
+atlas = ExtResource("1_x8s4w")
+region = Rect2(250, 0, 50, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ghg6"]
+atlas = ExtResource("1_x8s4w")
+region = Rect2(300, 0, 50, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_135jq"]
+atlas = ExtResource("1_x8s4w")
+region = Rect2(350, 0, 50, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xk8j"]
+atlas = ExtResource("1_x8s4w")
+region = Rect2(400, 0, 50, 65)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qhwfj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5awf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfwmg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xf24s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1xsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ax1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6knu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ghg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_135jq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xk8j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="MikeTheIllusion" type="CharacterBody2D"]
+script = ExtResource("1_m3fyc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(380.462, 79.5488)
+scale = Vector2(1.7015, 1.7015)
+sprite_frames = SubResource("SpriteFrames_qhwfj")

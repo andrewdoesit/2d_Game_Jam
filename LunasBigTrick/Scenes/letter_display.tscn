@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1gfxw0t1ij12"]
+
+[ext_resource type="Script" path="res://Scenes/letter_display.gd" id="1_s8jn4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rygyw"]
+size = Vector2(39.9417, 262.642)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tkcrm"]
+size = Vector2(142, 168)
+
+[node name="LetterDisplay" type="Node2D"]
+scale = Vector2(1.00146, 1.03563)
+script = ExtResource("1_s8jn4")
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(1022.5, 417.139)
+
+[node name="ResetBox" type="Area2D" parent="."]
+position = Vector2(4.76837e-07, 401.688)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="ResetBox"]
+offset_top = -39.0
+offset_right = 40.0
+offset_bottom = 224.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResetBox"]
+position = Vector2(19.9708, 92.6972)
+shape = SubResource("RectangleShape2D_rygyw")
+
+[node name="BoxOne" type="Area2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxOne"]
+position = Vector2(68, 83)
+shape = SubResource("RectangleShape2D_tkcrm")
+
+[node name="Label" type="Label" parent="BoxOne"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 0.5
+offset_top = -4.0
+offset_right = 139.5
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 128
+
+[node name="BoxTwo" type="Area2D" parent="."]
+visible = false
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxTwo"]
+position = Vector2(68, 83)
+shape = SubResource("RectangleShape2D_tkcrm")
+
+[node name="Label" type="Label" parent="BoxTwo"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 0.5
+offset_top = -4.0
+offset_right = 139.5
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 128
+
+[node name="WinLabel" type="Label" parent="."]
+visible = false
+offset_left = 439.359
+offset_top = 46.3486
+offset_right = 744.359
+offset_bottom = 221.349
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 128
+
+[connection signal="area_entered" from="ResetBox" to="." method="_on_reset_box_area_entered"]

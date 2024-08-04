@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://i01rvglmwq0w"]
+
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_iwi35"]
+[ext_resource type="Texture2D" uid="uid://cx541o6ed40qk" path="res://Art/Smileys_ART/smileyBackground.png" id="2_t4arx"]
+[ext_resource type="PackedScene" uid="uid://c1gfxw0t1ij12" path="res://Scenes/letter_display.tscn" id="3_6lnom"]
+[ext_resource type="Texture2D" uid="uid://oood183i5wwr" path="res://Art/Smileys_ART/Note_board.png" id="3_ilv1p"]
+[ext_resource type="AudioStream" uid="uid://fmkw8je83swf" path="res://Art/Magic_Music.wav" id="6_7yfke"]
+[ext_resource type="PackedScene" uid="uid://cewowgltsrb8k" path="res://Scenes/mike_the_illusion.tscn" id="6_mkxg3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhqw1"]
+size = Vector2(170.965, 123.831)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_iwi35")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(578.5, 321)
+scale = Vector2(4.51172, 2.52344)
+texture = ExtResource("2_t4arx")
+
+[node name="BoxThingy" type="Area2D" parent="."]
+position = Vector2(543, 499)
+
+[node name="Sprite2D" type="Sprite2D" parent="BoxThingy"]
+position = Vector2(44, 24)
+scale = Vector2(4.06641, 2.05)
+texture = ExtResource("3_ilv1p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxThingy"]
+position = Vector2(32, 23.6439)
+scale = Vector2(0.584914, 0.781002)
+shape = SubResource("RectangleShape2D_hhqw1")
+
+[node name="LetterDisplay" parent="." instance=ExtResource("3_6lnom")]
+position = Vector2(-2, 0)
+
+[node name="YouDidItLabel" type="Label" parent="."]
+offset_left = 247.0
+offset_top = 71.0
+offset_right = 904.0
+offset_bottom = 177.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+
+[node name="MikeTheIllusion" parent="." instance=ExtResource("6_mkxg3")]
+position = Vector2(202, 203)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_7yfke")
+
+[connection signal="area_entered" from="BoxThingy" to="." method="_on_box_thingy_area_entered"]
+[connection signal="area_exited" from="BoxThingy" to="." method="_on_box_thingy_area_exited"]
+[connection signal="child_exiting_tree" from="LetterDisplay" to="." method="_on_letter_display_child_exiting_tree"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

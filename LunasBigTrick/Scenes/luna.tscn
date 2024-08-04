@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6p4m7182c73y"]
+
+[ext_resource type="Texture2D" uid="uid://bew5gwvwuwb45" path="res://luna.png" id="1_g2md6"]
+[ext_resource type="Texture2D" uid="uid://byp8ubkrige2x" path="res://Art/Hat.png" id="2_kumvs"]
+
+[node name="Luna" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_g2md6")
+
+[node name="Hat" type="Sprite2D" parent="."]
+position = Vector2(-24, -5.99999)
+scale = Vector2(0.149219, 0.15)
+texture = ExtResource("2_kumvs")
